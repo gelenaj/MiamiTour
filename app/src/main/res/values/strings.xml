@@ -1,0 +1,20 @@
+<resources>
+    <string name="app_name">The Other Miami Tour</string>
+    <string name="title_activity_maps">Map</string>
+    <string name="welcome_to_miami">WELCOME TO MIAMI</string>
+    <string name="tour_overview_fragment">tour overview fragment</string>
+    <string name="about_fragment">ABOUT FRAGMENT</string>
+    <string name="explore_miami">Explore Miami</string>
+    <string name="lutti">lutti</string>
+    <string name="image">image</string>
+    <string name="overview">Overview</string>
+    <string name="next">Next</string>
+    <string name="site_picture">site picture</string>
+    <string name="title_activity_nav_drawer">NavDrawer</string>
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+    <string name="nav_header_title">Android Studio</string>
+    <string name="nav_header_subtitle">android.studio@android.com</string>
+    <string name="nav_header_desc">Navigation header</string>
+    <string name="action_settings">Settings</string>
+</resources>
