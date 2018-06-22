@@ -6,7 +6,6 @@ import android.support.design.widget.TabLayout;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentTransaction;
 import android.support.v4.view.ViewPager;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -51,18 +50,12 @@ return view;
             case R.id.button_to_map:
                 Intent i = new Intent(getContext(), MapsActivity.class);
                 startActivity(i);
-                // code for button when user clicks buttonOne.
                 break;
 
             case R.id.button_to_sites:
-                siteFragment = null;
-                SiteFragment siteFragment = new SiteFragment();
-                FragmentTransaction fragmentTransaction = getFragmentManager().beginTransaction();
-                getActivity().setTitle("Sites");
-                fragmentTransaction.replace(R.id.frame, siteFragment);
-                fragmentTransaction.commit();
+                Intent x = new Intent(getContext(), SiteActivity.class);
+                startActivity(x);
                 break;
-
             default:
                 break;
         }

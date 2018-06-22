@@ -82,7 +82,7 @@ public class MainActivity extends AppCompatActivity
             startActivity(intent);
         }
         else if (id == R.id.sitesNavItem) {
-            Intent intent = new Intent(getApplicationContext(), SiteFragment.class);
+            Intent intent = new Intent(getApplicationContext(), SiteActivity.class);
             startActivity(intent);
 
         }
