@@ -46,8 +46,6 @@ public class SiteActivity extends AppCompatActivity {
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                //Site site = sites.get(position);
-
                 Bundle bundle = new Bundle();
                 bundle.putString("name", sites.get(position).getName());
                 bundle.putString("description", sites.get(position).getDescription());
@@ -55,13 +53,6 @@ public class SiteActivity extends AppCompatActivity {
                 SiteDetailFragment siteDetailFragment = new SiteDetailFragment();
                 siteDetailFragment.setArguments(bundle);
 
-//                String siteName = site.getName();
-//                String siteDescription = site.getDescription();
-//
-//                Intent intent = new Intent(SiteActivity.this, SiteDetailFragment.class);
-//
-//
-//                startActivity(intent);
             }
         });
 
