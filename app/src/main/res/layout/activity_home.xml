@@ -3,15 +3,17 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:layout_marginTop="45dp"
+    android:layout_gravity="center_vertical"
+    android:layout_marginTop="30dp"
     android:orientation="vertical">
 
     <android.support.v4.view.ViewPager
+
         android:id="@+id/viewpager"
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:layout_weight="1" />
-
+        android:layout_weight="1"
+        android:alpha="0.8" />
 
     <android.support.design.widget.TabLayout
         android:id="@+id/tabLayout"
@@ -21,21 +23,18 @@
 
     <Button
         android:id="@+id/button_to_sites"
-        android:layout_width="360dp"
+        android:layout_width="370dp"
         android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
         android:layout_marginBottom="5dp"
-        android:layout_marginLeft="8dp"
-        android:layout_marginRight="8dp"
-        android:text="Featured Locations" />
+        android:text="@string/featured_locations" />
 
     <Button
         android:id="@+id/button_to_map"
-        android:layout_width="360dp"
+        android:layout_width="370dp"
         android:layout_height="wrap_content"
-        android:layout_gravity="bottom"
-        android:layout_marginBottom="15dp"
-        android:layout_marginLeft="8dp"
-        android:layout_marginRight="8dp"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginBottom="35dp"
         android:text="@string/explore_miami" />
 
 

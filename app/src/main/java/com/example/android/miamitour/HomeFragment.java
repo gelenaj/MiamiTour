@@ -22,10 +22,9 @@ public class HomeFragment extends Fragment implements View.OnClickListener {
 
     @Override
     public View onCreateView(LayoutInflater inflater,
-                                @Nullable ViewGroup container,
-                                @Nullable Bundle savedInstanceState) {
+                             @Nullable ViewGroup container,
+                             @Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        //setContentView(R.layout.activity_home);
         View view = inflater.inflate(R.layout.activity_home, container, false);
 
         buttonToMap = view.findViewById(R.id.button_to_map);
@@ -33,16 +32,13 @@ public class HomeFragment extends Fragment implements View.OnClickListener {
         buttonToLocations.setOnClickListener(this);
         buttonToMap.setOnClickListener(this);
 
+        ViewPager viewPager = view.findViewById(R.id.viewpager);
+        viewPager.setAdapter(new TabFragmentPagerAdapter(getChildFragmentManager(), this.getContext()));
 
-
-    ViewPager viewPager = view.findViewById(R.id.viewpager);
-    viewPager.setAdapter(new TabFragmentPagerAdapter(getChildFragmentManager(), this.getContext()));
-
-    TabLayout tabLayout = (TabLayout) view.findViewById(R.id.tabLayout);
-    tabLayout.setupWithViewPager(viewPager);
-return view;
+        TabLayout tabLayout = (TabLayout) view.findViewById(R.id.tabLayout);
+        tabLayout.setupWithViewPager(viewPager);
+        return view;
     }
-
 
     public void onClick(View v) {
         switch (v.getId()) {

@@ -2,8 +2,8 @@
     <string name="app_name">The Other Miami Tour</string>
     <string name="title_activity_maps">Map</string>
     <string name="welcome_to_miami">WELCOME TO MIAMI</string>
-    <string name="tour_overview_fragment">tour overview fragment</string>
-    <string name="about_fragment">ABOUT FRAGMENT</string>
+    <string name="tour_overview_fragment">-Avoid the tourist traps \n -Learn some interesting history of Miami \n -Get a deeper understanding of the city</string>
+    <string name="about_fragment">The Other Miami tour guide is meant to show you the real Miami-- the Miami few want to see. \n \n We are looking beyond what the eye sees to see the places of Miami that have torn it apart and brought it together. This is the Miami tour guide not for the anti-political outsider.</string>
     <string name="explore_miami">Explore Miami</string>
     <string name="lutti">lutti</string>
     <string name="image">image</string>
@@ -17,4 +17,15 @@
     <string name="nav_header_subtitle">android.studio@android.com</string>
     <string name="nav_header_desc">Navigation header</string>
     <string name="action_settings">Settings</string>
+    <string name="wynwood">Wynwood</string>
+    <string name="overtown">Overtown</string>
+    <string name="littleHavana">Little Havana</string>
+    <string name="opalocka">Opa-locka</string>
+    <string name="opalackaCityHall">Opalacka City Hall</string>
+    <string name="name">name</string>
+    <string name="address">address</string>
+    <string name="description">description</string>
+    <string name="featured_locations">Featured Locations</string>
+    <string name="textview">TextView</string>
+    <string name="the_other_miami_tour_guide">The Other Miami Tour Guide</string>
 </resources>

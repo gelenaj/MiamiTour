@@ -19,9 +19,10 @@ import com.example.android.miamitour.adapters.SiteAdapter;
 
 import java.util.ArrayList;
 
+import static com.example.android.miamitour.R.string.wynwood;
+
 public class SiteActivity extends AppCompatActivity {
     private Fragment siteDetailsFragment;
-    private FragmentManager mFragmentManager;
     private FragmentTransaction mFragmentTransaction;
     private Site site;
     private ViewGroup frameContainer;
@@ -32,10 +33,10 @@ public class SiteActivity extends AppCompatActivity {
         setContentView(R.layout.activity_site);
 
         final ArrayList<Site> sites = new ArrayList<>();
-        sites.add(new Site("Wynwood", "this is description for wynwood"));
-        sites.add(new Site("Overtown", "this is description for overtown"));
-        sites.add(new Site("Little Havana", "this is description for little havana"));
-        sites.add(new Site("Opalaca City Hall", "this is description for opalaca"));
+        sites.add(new Site(getString(R.string.wynwood), "2520 NW 2nd Ave, Miami, FL 33127", "This is description for wynwood"));
+        sites.add(new Site(getString(R.string.overtown), "999 NW 1st Ave, Miami, FL 33136", "This is description for overtown"));
+        sites.add(new Site(getString(R.string.littleHavana), "806 SW 13th Ave, Miami, FL 33135", "This is description for little havana"));
+        sites.add(new Site(getString(R.string.opalackaCityHall), "780 Fisherman St, Opa-locka, FL 33054", "This is description for opalaca"));
 
         final SiteAdapter customAdapter = new SiteAdapter(SiteActivity.this, sites);
 
@@ -43,17 +44,19 @@ public class SiteActivity extends AppCompatActivity {
 
         listView.setAdapter(customAdapter);
 
+        /*
+        * Handles clicks on individual cities and passes data to the SiteDetailActivity.
+        * */
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                Bundle bundle = new Bundle();
-                bundle.putString("name", sites.get(position).getName());
-                bundle.putString("description", sites.get(position).getDescription());
-
-                SiteDetailFragment siteDetailFragment = new SiteDetailFragment();
-                siteDetailFragment.setArguments(bundle);
-
+                Intent intent = new Intent(SiteActivity.this, SiteDetailActivity.class);
+                intent.putExtra(getString(R.string.name), sites.get(position).getName());
+                intent.putExtra(getString(R.string.address), sites.get(position).getAddress());
+                intent.putExtra(getString(R.string.description), sites.get(position).getDescription());
+                startActivity(intent);
             }
+
         });
 
     }

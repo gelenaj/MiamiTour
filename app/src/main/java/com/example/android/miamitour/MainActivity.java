@@ -25,7 +25,7 @@ public class MainActivity extends AppCompatActivity
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
+        Toolbar toolbar = findViewById(R.id.toolbar);
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
@@ -77,22 +77,13 @@ public class MainActivity extends AppCompatActivity
         // Handle navigation view item clicks here.
         int id = item.getItemId();
 
-        if (id == R.id.homeNavItem) {
-            Intent intent = new Intent(getApplicationContext(), HomeFragment.class);
-            startActivity(intent);
-        }
-        else if (id == R.id.sitesNavItem) {
+        if (id == R.id.sitesNavItem) {
             Intent intent = new Intent(getApplicationContext(), SiteActivity.class);
             startActivity(intent);
-
-        }
-        else if (id == R.id.mapNavItem) {
+        } else if (id == R.id.mapNavItem) {
             Intent intent = new Intent(getApplicationContext(), MapsActivity.class);
             startActivity(intent);
         }
-//        } else if (id == R.id.aboutNavItem) {
-//
-//        }
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         drawer.closeDrawer(GravityCompat.START);
@@ -102,14 +93,13 @@ public class MainActivity extends AppCompatActivity
     public void selectItem(int id) {
         mFragment = null;
         mFragmentManager = getSupportFragmentManager();
-        switch (id){
+        switch (id) {
             case R.id.homeNavItem:
                 mFragment = new HomeFragment();
                 setTitle("Home");
                 break;
-
         }
-        if (mFragment != null){
+        if (mFragment != null) {
             mFragmentTransaction = mFragmentManager.beginTransaction();
             mFragmentTransaction.replace(R.id.frame, mFragment);
             mFragmentTransaction.commit();

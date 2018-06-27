@@ -22,6 +22,9 @@ public class SiteAdapter extends ArrayAdapter<Site> {
 
     @NonNull
     @Override
+    /**
+     * Displays locations sent from SiteActivity.
+     */
     public View getView(int position, @Nullable View convertView, @NonNull ViewGroup parent) {
         View listItemView = convertView;
 

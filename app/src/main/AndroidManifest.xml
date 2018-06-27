@@ -16,11 +16,7 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity
-            android:name=".SplashActivity"
-            android:theme="@style/SplashTheme">
 
-        </activity>
         <!--
              The API key for Google Maps-based APIs is defined as a string resource.
              (See the file "res/values/google_maps_api.xml").
@@ -36,12 +32,17 @@
 
         <activity
             android:name=".MapsActivity"
-            android:label="@string/title_activity_maps">
-            <meta-data
-                android:name="android.support.PARENT_ACTIVITY"
-                android:value="com.example.android.miamitour.MainActivity" />
+            android:label="@string/title_activity_maps"
+            android:parentActivityName=".MainActivity">
+
         </activity>
-        <activity android:name=".SiteActivity" android:label="Sites"/>
+        <activity android:name=".SiteActivity"
+            android:label="Sites"
+            android:parentActivityName=".MainActivity">
+
+        </activity>
+
+        <activity android:name=".SiteDetailActivity" android:label="Site Details" android:parentActivityName=".SiteActivity"/>
         <activity
             android:name=".MainActivity"
             android:label="@string/title_activity_nav_drawer"

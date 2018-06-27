@@ -9,10 +9,13 @@ import com.google.android.gms.maps.GoogleMap;
 import com.google.android.gms.maps.OnMapReadyCallback;
 import com.google.android.gms.maps.SupportMapFragment;
 import com.google.android.gms.maps.model.LatLng;
+import com.google.android.gms.maps.model.Marker;
 import com.google.android.gms.maps.model.MarkerOptions;
 
-public class MapsActivity extends FragmentActivity implements OnMapReadyCallback {
+import java.util.ArrayList;
+import java.util.List;
 
+public class MapsActivity extends FragmentActivity implements OnMapReadyCallback {
     private GoogleMap mMap;
 
     @Override
@@ -25,7 +28,6 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
         mapFragment.getMapAsync(this);
     }
 
-
     /**
      * Manipulates the map once available.
      * This callback is triggered when the map is ready to be used.
@@ -35,24 +37,45 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
      * it inside the SupportMapFragment. This method will only be triggered once the user has
      * installed Google Play services and returned to the app.
      */
+
+    private List<Marker> markers = new ArrayList<Marker>();
+
     @Override
     public void onMapReady(GoogleMap googleMap) {
         mMap = googleMap;
 
         // Add a marker in Sydney and move the camera
-        zoomIntoLocation(25.814894, -80.1997863, 12);
-        LatLng wynwood = new LatLng(25.803837, -80.199304);
 
-        mMap.addMarker(new MarkerOptions().position(wynwood).title("Marker Wynwood"));
-        mMap.moveCamera(CameraUpdateFactory.newLatLng(wynwood));
+        Marker wynwood = mMap.addMarker(new MarkerOptions()
+                .position(new LatLng(25.803837, -80.199304))
+                .title(getString(R.string.wynwood)));
+        markers.add(wynwood);
+
+        Marker overtown = mMap.addMarker(new MarkerOptions()
+                .position(new LatLng(25.783714, -80.195917))
+                .title(getString(R.string.overtown)));
+        markers.add(overtown);
+
+        Marker littleHavana = mMap.addMarker(new MarkerOptions()
+                .position(new LatLng(25.765960, -80.216489))
+                .title(getString(R.string.littleHavana)));
+        markers.add(littleHavana);
+
+        Marker opalacka = mMap.addMarker(new MarkerOptions()
+                .position(new LatLng(25.905179, -80.251258))
+                .title(getString(R.string.opalocka)));
+        markers.add(opalacka);
+
+        zoomIntoLocation(25.783714, -80.195917, 12);
     }
-    private void goToLocation(double lat, double lng){
+
+    private void goToLocation(double lat, double lng) {
         LatLng ll = new LatLng(lat, lng);
         CameraUpdate cameraUpdate = CameraUpdateFactory.newLatLng(ll);
         mMap.moveCamera(cameraUpdate);
     }
 
-    private void zoomIntoLocation(double lat, double lang, float zoomLevel){
+    private void zoomIntoLocation(double lat, double lang, float zoomLevel) {
         LatLng ll = new LatLng(lat, lang);
         CameraUpdate cameraUpdate = CameraUpdateFactory.newLatLngZoom(ll, zoomLevel);
         mMap.moveCamera(cameraUpdate);

@@ -10,13 +10,13 @@ import com.example.android.miamitour.TourOverviewFragment;
 import com.example.android.miamitour.WelcomeFragment;
 
 public class TabFragmentPagerAdapter extends android.support.v4.app.FragmentPagerAdapter {
-    final int PAGE_COUNT = 3;
-    private String tabTitles[] = new String[] {"Welcome", "About", "Tour Overview" };
+    private final int PAGE_COUNT = 3;
+    private String tabTitles[] = new String[]{"Welcome", "About", "Tour Overview"};
     private Context context;
 
-    final AboutFragment aboutFragment = new AboutFragment();
-    final TourOverviewFragment tourOverviewFragment = new TourOverviewFragment();
-    final WelcomeFragment welcomeFragment = new WelcomeFragment();
+    private final AboutFragment aboutFragment = new AboutFragment();
+    private final TourOverviewFragment tourOverviewFragment = new TourOverviewFragment();
+    private final WelcomeFragment welcomeFragment = new WelcomeFragment();
 
     public TabFragmentPagerAdapter(FragmentManager fm, Context context) {
         super(fm);
@@ -41,10 +41,11 @@ public class TabFragmentPagerAdapter extends android.support.v4.app.FragmentPage
                 return null;
         }
     }
-        @Override
-        public CharSequence getPageTitle(int position){
-            // Generate title based on item position
-            return tabTitles[position];
-        }
+
+    @Override
+    public CharSequence getPageTitle(int position) {
+        // Generate title based on item position
+        return tabTitles[position];
     }
+}
 
