@@ -8,25 +8,37 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
-public class SiteDetailFragment extends Fragment {
+import static com.example.android.miamitour.SiteActivity.EXTRA_ADDRESS;
+import static com.example.android.miamitour.SiteActivity.EXTRA_DESCRIPTION;
+import static com.example.android.miamitour.SiteActivity.EXTRA_NAME;
+
+public class SiteDetailFragment extends Fragment  {
     private Site site;
-    TextView name;
+    String name;
+    String address;
+    String description;
     TextView detailNameTx;
     TextView descriptionTx;
     TextView addressTx;
 
     public static Fragment newInstance() {
         SiteDetailFragment siteDetailFragment = new SiteDetailFragment();
+//        Bundle args = new Bundle();
+//
+//        args.putString("EXTRA_NAME", name);
+//        siteDetailFragment.setArguments(args);
         return siteDetailFragment;
     }
 
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        String name = getArguments().getString(getString(R.string.name));
-        String address = getArguments().getString(getString(R.string.address));
-        String description = getArguments().getString(getString(R.string.description));
-        site = new Site(name, address, description);
+        name = getArguments().getString("EXTRA_NAME");
+        address = getArguments().getString("EXTRA_ADDRESS");
+        description = getArguments().getString("EXTRA_DESCRIPTION");
+        //site = new Site(name, address, description);
+
+
     }
 
     @Override
@@ -38,9 +50,9 @@ public class SiteDetailFragment extends Fragment {
         addressTx = view.findViewById(R.id.site_address_name_text_view);
         descriptionTx = view.findViewById(R.id.site_description_text_view);
 
-        detailNameTx.setText(site.getName());
-        addressTx.setText(site.getAddress());
-        descriptionTx.setText(site.getDescription());
+        detailNameTx.setText(name);
+       addressTx.setText(address);
+        descriptionTx.setText(description);
         return view;
 
     }

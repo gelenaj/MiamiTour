@@ -11,7 +11,15 @@ import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
+import android.text.TextUtils;
 import android.view.View;
+import android.widget.TextView;
+
+import org.w3c.dom.Text;
+
+import static com.example.android.miamitour.SiteActivity.EXTRA_ADDRESS;
+import static com.example.android.miamitour.SiteActivity.EXTRA_DESCRIPTION;
+import static com.example.android.miamitour.SiteActivity.EXTRA_NAME;
 
 
 public class SiteDetailActivity extends AppCompatActivity {
@@ -24,16 +32,20 @@ public class SiteDetailActivity extends AppCompatActivity {
         setContentView(R.layout.activity_site_detail);
 
         Intent intent = getIntent();
-        if (intent.hasExtra(getString(R.string.name)) && intent.hasExtra(getString(R.string.address)) && intent.hasExtra(getString(R.string.description))) {
+        if (intent.hasExtra(EXTRA_NAME) && intent.hasExtra(EXTRA_ADDRESS) && intent.hasExtra(EXTRA_DESCRIPTION)) {
 
-            String name = intent.getStringExtra(getString(R.string.name));
-            String address = intent.getStringExtra(getString(R.string.address));
-            String description = intent.getStringExtra(getString(R.string.description));
+            String name = intent.getStringExtra(EXTRA_NAME);
+            String address = intent.getStringExtra(EXTRA_ADDRESS);
+            String description = intent.getStringExtra(EXTRA_DESCRIPTION);
+
+//            TextView nameTx = findViewById(R.id.site_name_text_view);
+//            TextView addressTx = findViewById(R.id.site_address_name_text_view);
+//            TextView descriptionTx = findViewById(R.id.site_description_text_view);
 
             Bundle bundle = new Bundle();
-            bundle.putString(getString(R.string.name), name);
-            bundle.putString(getString(R.string.address), address);
-            bundle.putString(getString(R.string.description), description);
+            bundle.putString("EXTRA_NAME", name);
+            bundle.putString("EXTRA_ADDRESS", address);
+            bundle.putString("EXTRA_DESCRIPTION", description);
 
             android.support.v4.app.Fragment siteDetailFragment = SiteDetailFragment.newInstance();
             siteDetailFragment.setArguments(bundle);
